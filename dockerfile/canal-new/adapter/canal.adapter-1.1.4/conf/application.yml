@@ -1,0 +1,39 @@
+server:
+  port: 8081
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+canal.conf:
+  mode: tcp # kafka rocketMQ
+  canalServerHost: 127.0.0.1:11111
+#  zookeeperHosts: slave1:2181
+#  mqServers: 127.0.0.1:9092 #or rocketmq
+#  flatMessage: true
+  batchSize: 500
+  syncBatchSize: 1000
+  retries: 0
+  timeout:
+  accessKey:
+  secretKey:
+  srcDataSources:
+    defaultDS:
+      url: jdbc:mysql://127.0.0.1:3306/test_canal?useUnicode=true
+      username: canal
+      password: canal
+  canalAdapters:
+  - instance: example # canal instance Name or mq topic name
+    groups:
+    - groupId: g1
+      outerAdapters:
+      - name: logger
+      - name: rdb
+        key: mysql1
+        properties:
+          jdbc.driverClassName: com.mysql.jdbc.Driver
+          jdbc.url: jdbc:mysql://127.0.0.1:3306/test_canal?useUnicode=true
+          jdbc.username: canal
+          jdbc.password: canal
+

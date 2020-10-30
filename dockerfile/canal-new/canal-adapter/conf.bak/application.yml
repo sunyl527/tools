@@ -1,0 +1,74 @@
+server:
+  port: 8081
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+canal.conf:
+  mode: tcp #tcp kafka rocketMQ rabbitMQ
+  flatMessage: true
+  zookeeperHosts:
+  syncBatchSize: 1000
+  retries: 0
+  timeout:
+  accessKey:
+  secretKey:
+  consumerProperties:
+    # canal tcp consumer
+    canal.tcp.server.host: canal-s1:11111
+    canal.tcp.zookeeper.hosts: zookeeper:2181
+    canal.tcp.batch.size: 500
+    canal.tcp.username:
+    canal.tcp.password:
+
+    srcDataSources:
+      defaultDS:
+        url: jdbc:mysql://yearning-mysql.charts-test:3306/test_canal?useUnicode=true
+        username: canal
+        password: canal
+  canalAdapters:
+    - instance: example # canal instance Name or mq topic name
+      groups:
+        - groupId: g1
+          outerAdapters:
+            - name: logger
+      - name: rdb
+        key: mysql1
+        properties:
+          jdbc.driverClassName: com.mysql.jdbc.Driver
+          jdbc.url: jdbc:mysql://yearning-mysql.charts-test:3306/test_canal_slave?useUnicode=true
+          jdbc.username: canal
+          jdbc.password: canal
+#      - name: rdb
+#        key: oracle1
+#        properties:
+#          jdbc.driverClassName: oracle.jdbc.OracleDriver
+#          jdbc.url: jdbc:oracle:thin:@localhost:49161:XE
+#          jdbc.username: mytest
+#          jdbc.password: m121212
+#      - name: rdb
+#        key: postgres1
+#        properties:
+#          jdbc.driverClassName: org.postgresql.Driver
+#          jdbc.url: jdbc:postgresql://localhost:5432/postgres
+#          jdbc.username: postgres
+#          jdbc.password: 121212
+#          threads: 1
+#          commitSize: 3000
+#      - name: hbase
+#        properties:
+#          hbase.zookeeper.quorum: 127.0.0.1
+#          hbase.zookeeper.property.clientPort: 2181
+#          zookeeper.znode.parent: /hbase
+#      - name: es
+#        hosts: 127.0.0.1:9300 # 127.0.0.1:9200 for rest mode
+#        properties:
+#          mode: transport # or rest
+#          # security.auth: test:123456 #  only used for rest mode
+#          cluster.name: elasticsearch
+#        - name: kudu
+#          key: kudu
+#          properties:
+#            kudu.master.address: 127.0.0.1 # ',' split multi address
