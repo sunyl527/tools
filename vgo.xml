@@ -2,6 +2,7 @@
   <component name="vgo">
     <proxies>
       <list>
+        <option value="direct" />
         <option value="https://goproxy.cn,https://goproxy.io,direct" />
       </list>
     </proxies>
