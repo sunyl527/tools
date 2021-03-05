@@ -1,0 +1,8 @@
+<application>
+  <component name="LanguageInjectionConfiguration">
+    <injection language="GitIgnore" injector-id="java">
+      <display-name>Logger.info (org.slf4j)</display-name>
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("info").withParameters("java.lang.String", "java.lang.Object").definedInClass("org.slf4j.Logger"))]]></place>
+    </injection>
+  </component>
+</application>
