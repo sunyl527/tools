@@ -90,6 +90,10 @@
           <option name="url" value="http://gitlab.zenlayer.net/sre/saltstack/sysops-salt.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://gitlab.zenlayer.net/zenconsole/zen-fam.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="$USER_HOME$/Documents/OneDrive/code" />
