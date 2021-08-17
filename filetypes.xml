@@ -8,6 +8,7 @@
       <mapping pattern=".tmp" type="PLAIN_TEXT" />
       <mapping pattern="testparams" type="PLAIN_TEXT" />
       <mapping pattern="ilm" type="PLAIN_TEXT" />
+      <mapping pattern="mysql_backup" type="PLAIN_TEXT" />
       <mapping pattern="env" type="PLAIN_TEXT" />
       <mapping pattern="tmp" type="PLAIN_TEXT" />
       <mapping pattern="DockerFile" type="PLAIN_TEXT" />
