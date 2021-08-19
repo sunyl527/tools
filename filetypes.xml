@@ -6,6 +6,7 @@
       <mapping ext="main.kts" type="Kotlin" />
       <mapping ext="gradle.kts" type="Kotlin" />
       <mapping pattern=".tmp" type="PLAIN_TEXT" />
+      <mapping pattern="authorized_keys" type="PLAIN_TEXT" />
       <mapping pattern="testparams" type="PLAIN_TEXT" />
       <mapping pattern="ilm" type="PLAIN_TEXT" />
       <mapping pattern="mysql_backup" type="PLAIN_TEXT" />
